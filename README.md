@@ -7,7 +7,9 @@
 **Examiner feedback (first marker):**
 > "The dissertation tackles an important and well-defined question with impressive data collection and a deep understanding of the institutional context. The novelty of combining climate, agricultural, and social outcomes in a single framework is a strong aspect of the study."
 
-This is the repository for my MSc dissertation analysis. I was trying to answer a specific question: Do rainfall shocks increase domestic violence against women in India by reducing agricultural income?
+**Conference:** Abstract accepted for poster session at the Population Association of America (PAA) Annual Meeting 2026. Unable to attend due to funding constraints and current IFAD internship commitments.
+
+This is the repository for my MSc dissertation analysis. I was trying to answer a specific question: do rainfall shocks increase domestic violence against women in India by reducing agricultural income?
 
 ---
 
@@ -19,18 +21,19 @@ The income stress channel made sense to me theoretically. Less rain means lower 
 
 ## What I found
 
-I built a 20-year state-level panel dataset covering 25 Indian states from 2001 to 2021, using data from IMD for rainfall, NCRB for crime, and RBI for agricultural and financial data.
+I built a state-level panel dataset covering 25 Indian states from 2001 to 2021, using data from IMD for rainfall, NCRB for crime, and RBI for agricultural and financial data.
 
-The main result surprised me.
+The results were more interesting than I expected.
 
 ```
-What I expected:  Rainfall deviation → lower agricultural output → more violence  ✗
-What I found:     Social sector expenditure → MORE reported domestic violence  ✓
+Rainfall deviation → lower agricultural output            ✓  (significant)
+Rainfall deviation → more domestic violence (direct)      ✗  (minimal effect)
+Social sector expenditure → MORE reported violence        ✓  (unexpected, robust)
 ```
 
-The direct rainfall-to-violence channel was weak. But social sector expenditure, spending on health and education, showed a strong positive correlation with reported domestic violence across all my specifications.
+The direct rainfall-to-violence channel was weak. Rainfall significantly affected agricultural output, but that effect did not translate directly into more reported domestic violence.
 
-States that spend more on social infrastructure report more domestic violence, not less. That is the opposite of what a simple protective spending story would predict.
+What was unexpected was the social sector expenditure finding. States that spend more on health and education reported more domestic violence, not less. That result held across all my specifications.
 
 ---
 
@@ -38,7 +41,7 @@ States that spend more on social infrastructure report more domestic violence, n
 
 This interpretation came after finishing the dissertation, through continued reading. It is a hypothesis, not a finding from the dissertation itself. I want to be clear about that.
 
-I think what the data shows is not more violence occurring. It is more violence being reported. When women have a clinic to go to, a school nearby, a government presence they can approach, they are more likely to report violence that was always happening but was previously invisible in the data.
+I think what the data shows is not more violence occurring. More violence is being reported. When women have a clinic to go to, a school nearby, a government presence they can approach, they are more likely to report violence that was always happening but was previously invisible in the data.
 
 I am calling this the institutional trust mechanism. I am still developing the theoretical framework for it and working on a more rigorous version of this paper that addresses the identification challenges more carefully.
 
@@ -59,8 +62,9 @@ I am calling this the institutional trust mechanism. I am still developing the t
 The raw dataset is not uploaded here due to file size. The variable names and sources above are enough to reconstruct it from the original public sources.
 
 ---
-
 ## Methods
+
+*The full analysis do-file is being cleaned and will be uploaded shortly. The core specifications below match the published paper.*
 
 **Panel setup:**
 ```stata
@@ -104,7 +108,7 @@ rainfall-dv-india/
 
 The dissertation was submitted and graded in 2024.
 
-Since then I have kept reading. The IPV literature, institutional economics, measurement theory, and research on how hidden outcomes become visible through institutional presence. I am trying to develop the institutional trust mechanism into a proper theoretical framework with stronger identification. That work is ongoing.
+Since then, I have kept reading. The IPV literature, institutional economics, measurement theory, and research on how hidden outcomes become visible through institutional presence. I am trying to develop the institutional trust mechanism into a proper theoretical framework with stronger identification. That work is ongoing.
 
 This repository will be updated as the work develops. The cleaned do-file is coming.
 

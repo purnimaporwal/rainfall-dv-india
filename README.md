@@ -5,17 +5,16 @@
 **Grade: 68 — High Merit**
 
 **Examiner feedback (first marker):**
-> "The dissertation tackles an important and well-defined question with impressive data collection and a deep understanding of the institutional context. The novelty of combining climate, agricultural, and social outcomes in a single framework is a strong aspect of the study."
+"The dissertation tackles an important and well-defined question with impressive data collection and a deep understanding of the institutional context. The novelty of combining climate, agricultural, and social outcomes in a single framework is a strong aspect of the study."
 
-**Conference:** Abstract accepted for poster session at the Population Association of America (PAA) Annual Meeting 2026. Unable to attend due to funding constraints and current IFAD internship commitments.
-
-This is the repository for my MSc dissertation analysis. I was trying to answer a specific question: do rainfall shocks increase domestic violence against women in India by reducing agricultural income?
+**Conference presentations:** - Revised version accepted for Speed Session on Development, *RES Annual Conference 2026*, 6 July 2026, University of Newcastle
+- Abstract accepted for poster session, *Population Association of America (PAA) Annual Meeting 2026* — unable to attend due to funding constraints
 
 ---
 
 ## The research question
 
-The income stress channel made sense to me theoretically. Less rain means lower agricultural output, lower household income, more economic stress, and potentially more violence at home. I wanted to see if the data actually showed this.
+The income stress channel made sense to me theoretically. Less rain means lower agricultural output, lower household income, more economic stress, and potentially more violence incidents at home. I wanted to see if the data actually showed this.
 
 ---
 
@@ -31,19 +30,21 @@ Rainfall deviation → more domestic violence (direct)      ✗  (minimal effect
 Social sector expenditure → MORE reported violence        ✓  (unexpected, robust)
 ```
 
+
+
 The direct rainfall-to-violence channel was weak. Rainfall significantly affected agricultural output, but that effect did not translate directly into more reported domestic violence.
 
 What was unexpected was the social sector expenditure finding. States that spend more on health and education reported more domestic violence, not less. That result held across all my specifications.
 
 ---
 
-## My interpretation (developed after the dissertation)
+## My interpretation
 
-This interpretation came after finishing the dissertation, through continued reading. It is a hypothesis, not a finding from the dissertation itself. I want to be clear about that.
+This interpretation developed after the dissertation, through continued reading. It is a hypothesis I am still working to formalise, not a finding from the dissertation itself.
 
-I think what the data shows is not more violence occurring. More violence is being reported. When women have a clinic to go to, a school nearby, a government presence they can approach, they are more likely to report violence that was always happening but was previously invisible in the data.
+I think what the data shows is not more violence occurring, but more violence is being reported. When women have a clinic to go to, a school nearby, a government presence they can approach, they are more likely to report violence that was always happening but previously invisible in the data. What the data captures depends on whether institutions create the conditions for it to be captured at all.
 
-I am calling this the institutional trust mechanism. I am still developing the theoretical framework for it and working on a more rigorous version of this paper that addresses the identification challenges more carefully.
+I am developing this as an institutional visibility mechanism — distinct from institutional trust, which implies subjective confidence, and more about the material infrastructure through which hidden outcomes surface in administrative records. The theoretical framework and identification strategy are being worked on in the current revision.
 
 ---
 
@@ -52,19 +53,20 @@ I am calling this the institutional trust mechanism. I am still developing the t
 | Variable | Source | Coverage |
 |---|---|---|
 | Domestic violence (reported incidents) | NCRB Crime in India reports | 2001–2021, 25 states |
-| Annual rainfall deviation | IMD (India Meteorological Department) | State-level, annual |
+| Annual rainfall deviation | IMD | State-level, annual |
 | SW Monsoon rainfall deviation | IMD | State-level, annual |
 | Agricultural output | RBI Handbook of Statistics on Indian Economy | State GDP from agriculture |
 | Net irrigated area | RBI | State-level |
 | Credit to agriculture | RBI | State-level |
 | Social sector expenditure | RBI State Finances | Education + health spend |
 
-The raw dataset is not uploaded here due to file size. The variable names and sources above are enough to reconstruct it from the original public sources.
+The raw dataset is not uploaded here due to file size. The variable names and sources above are sufficient to reconstruct it from publicly available sources.
 
 ---
+
 ## Methods
 
-*The full analysis do-file is being cleaned and will be uploaded shortly. The core specifications below match the published paper.*
+*The full analysis do-file is being cleaned and will be uploaded shortly. The core specifications below match the dissertation analysis.*
 
 **Panel setup:**
 ```stata
@@ -79,7 +81,7 @@ xtreg DomesticViolenceIncidents AgriculturalOutput AnnualRainfalldeviation ///
     CredittoAgriculturebySchedul SocialSectorExpenditure i.YEAR, fe
 ```
 
-**Robustness checks I ran:**
+**Robustness checks:**
 - Hausman test (FE vs RE)
 - Breusch-Pagan LM test (xttest0)
 - Clustered standard errors (vce(cluster STATE_id))
@@ -87,6 +89,8 @@ xtreg DomesticViolenceIncidents AgriculturalOutput AnnualRainfalldeviation ///
 - Correlation matrix
 - Residual diagnostics (scatter, histogram, Q-Q plot)
 - Coefplots for coefficient visualisation
+
+**Current revision:** Incorporating log-transformation of key variables to address scale differences across regressors, alongside extended robustness checks.
 
 ---
 
@@ -98,29 +102,30 @@ rainfall-dv-india/
 └── README.md                # This file
 ```
 
-**Code:** The Stata do-file is being cleaned and annotated before I upload it. A working version with the full exploratory analysis exists. It will be added once it has a clear structure, a global path variable, and proper comments explaining each step. That is the standard I want for anything I share publicly.
+**Code:** The Stata do-file is being cleaned and annotated before I upload it,  with a global path variable, clear section headers, and comments explaining each analytical step. That is the standard I want for anything I share publicly.
 
 **Data:** Not uploaded due to file size. All sources are publicly available from IMD, NCRB, and RBI. The data sources table above has everything needed to reconstruct the dataset.
 
 ---
 
-## Status and what I am working on
+## Status 
 
 The dissertation was submitted and graded in 2024.
 
-Since then, I have kept reading. The IPV literature, institutional economics, measurement theory, and research on how hidden outcomes become visible through institutional presence. I am trying to develop the institutional trust mechanism into a proper theoretical framework with stronger identification. That work is ongoing.
+Since then, I have kept reading -- the IPV literature, institutional economics, measurement theory, and research on how hidden outcomes become visible through institutional presence. The current revision addresses the variable scaling issue, strengthens the robustness checks, and develops
+the institutional visibility framework more carefully.
 
-This repository will be updated as the work develops. The cleaned do-file is coming.
+This repository will be updated as the work develops. The cleaned do-file and revised paper are coming.
 
-If you work on related questions, domestic violence measurement, institutional trust, climate and gender outcomes in South Asia, I would genuinely love to talk.
-
+If you work on related questions, domestic violence measurement, institutional capacity and reporting behaviour, climate and gender outcomes in South Asia, I would
+genuinely like to talk.
 ---
 
 ## Citation
 
-Porwal, P. (2024). "Rainfall Variations, Agriculture and Domestic Violence Against Women in India." MSc Dissertation, University of Nottingham.
+Porwal, P. (2024). "A Tempestuous Triangle: Decoding the Impact of Rainfall Variations on Agriculture and Domestic Violence Against Women in India", MSc Dissertation, University of Nottingham.
 
-Also published: [open-access journal version](https://ijmrrs.com/wp-content/uploads/2025/01/DevelopmentEconomics_Research-1.pdf)
+Also available: [open-access journal version](https://ijmrrs.com/wp-content/uploads/2025/01/DevelopmentEconomics_Research-1.pdf)
 
 ---
 

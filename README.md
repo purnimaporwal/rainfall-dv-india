@@ -118,8 +118,7 @@ If you work on related questions, domestic violence measurement, institutional c
 
 Porwal, P. (2024). "A Tempestuous Triangle: Decoding the Impact of Rainfall Variations on Agriculture and Domestic Violence Against Women in India", MSc Dissertation, University of Nottingham.
 
-Also available: [open-access journal version](https://ijmrrs.com/wp-content/uploads/2025/01/DevelopmentEconomics_Research-1.pdf)
-
+Journal version in preparation (see Status section for current revision timeline).
 ---
 
 Part of my research portfolio: [github.com/purnimaporwal](https://github.com/purnimaporwal)
